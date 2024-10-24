@@ -8,6 +8,7 @@
     />
     <input type="email" placeholder="email" v-model="email" required />
     <input type="password" placeholder="password" v-model="password" required />
+    <div class="error">{{ error }}</div>
     <button>Sing up</button>
   </form>
 </template>
@@ -23,6 +24,7 @@ setup(){
   const displayName = ref('')
   const email = ref('')
   const password = ref('')
+
   const handleSubmit = async () => {
     await signup(email.value, password.value, displayName.value)
     console.log('user signed up')
